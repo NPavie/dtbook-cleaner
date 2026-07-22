@@ -97,6 +97,14 @@
         <p:input port="parameters"><p:empty/></p:input>
     </p:xslt>
 
+    <!-- - fix anchor href errors
+         - reencode href for URI
+         - remove whitespace characters-->
+    <p:xslt>
+        <p:input port="stylesheet"><p:document href="xsl/repair-anchor-href.xsl"/></p:input>
+        <p:input port="parameters"><p:empty/></p:input>
+    </p:xslt>
+
     <!--TODO : port the pipeline1 se_tpb_dtbookFix "InvalidURIExecutor" as a step and call it here -->
 
 </p:declare-step>

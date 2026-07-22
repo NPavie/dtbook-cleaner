@@ -6,7 +6,7 @@
                 xmlns:cx="http://xmlcalabash.com/ns/extensions"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 type="px:dtbook-cleaner.script" name="main"
-                px:input-filesets="docx"
+                px:input-filesets="dtbook"
                 px:output-filesets="dtbook">
 
 	<p:documentation xmlns="http://www.w3.org/1999/xhtml">
@@ -25,12 +25,12 @@
 		</dl>
 	</p:documentation>
 
-	<p:option name="source" required="true" px:type="anyFileURI">
+	<p:input port="source" primary="true" px:media-type="application/x-dtbook+xml" sequence="true">
 		<p:documentation>
 			<h2 px:role="name">Input DTBook</h2>
 			<p px:role="desc" xml:space="preserve">The document you want to cleanup.</p>
 		</p:documentation>
-	</p:option>
+	</p:input>
 	<p:option name="result" required="true" px:output="result" px:type="anyDirURI">
 		<p:documentation>
 			<h2 px:role="name">DTBook output</h2>
@@ -83,6 +83,12 @@ from em, strong, sub, sup, pagenum, noteref.</p>
 		<p:documentation xmlns="http://www.w3.org/1999/xhtml">
 			<h2 px:role="name">Cleanup the document for audio synthesis</h2>
 			<p px:role="desc" xml:space="preserve">Apply cleaning routines on the document to prepare it for text-to-speech processes.</p>
+		</p:documentation>
+	</p:option>
+	<p:option name="publisher" select="''" cx:as="xs:string">
+		<p:documentation xmlns="http://www.w3.org/1999/xhtml">
+			<h2 px:role="name">Narrator - Publisher</h2>
+			<p px:role="desc" xml:space="preserve">Publisher to be added as dc:Publisher if none is defined in the dtbook</p>
 		</p:documentation>
 	</p:option>
 	<p:option name="ApplySentenceDetection" select="false()" cx:as="xs:boolean">
@@ -141,7 +147,7 @@ if MathML is present in the document.</p>
 	<!-- ******************************************************************* -->
 	<!-- DTBOOK CLEANUP: apply cleanup routines and optionally tag sentences -->
 	<!-- ******************************************************************* -->
-
+	
 	<p:for-each px:message="Cleaning DTBook(s)" px:progess="1/2">
 		<p:variable name="output-name" select="concat(replace(replace(base-uri(.),'^.*/([^/]+)$','$1'),'\.[^\.]*$',''),'.xml')"/>
 		<p:group name="cleaned" px:message="Cleaning '{$output-name}' ...">
