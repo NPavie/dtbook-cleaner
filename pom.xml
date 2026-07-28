@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.daisy.pipeline.modules</groupId>
     <artifactId>modules-parent</artifactId>
-    <version>1.15.4</version>
+    <version>1.15.5-SNAPSHOT</version>
   </parent>
 
   <artifactId>dtbook-cleaner</artifactId>
@@ -47,11 +47,6 @@
     <dependency>
       <groupId>org.daisy.pipeline</groupId>
       <artifactId>saxon-adapter</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.daisy.pipeline.modules</groupId>
-      <artifactId>nlp-omnilang-lexer</artifactId>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.daisy.pipeline.modules</groupId>
