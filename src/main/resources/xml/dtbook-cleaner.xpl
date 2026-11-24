@@ -125,29 +125,12 @@ if MathML is present in the document.</p>
 			px:fileset-store
 		</p:documentation>
 	</p:import>
-	<p:import href="http://www.daisy.org/pipeline/modules/dtbook-utils/library.xpl">
-		<p:documentation>
-			px:dtbook-break-detect
-			px:dtbook-unwrap-words
-			px:dtbook-upgrade
-			px:dtbook-load
-		</p:documentation>
-	</p:import>
-	<p:import href="fix-dtbook/fix-dtbook.xpl">
-		<p:documentation>
-			pxi:dtbook-fix
-		</p:documentation>
-	</p:import>
-	<p:import href="fix-dtbook/doctyping.xpl">
-		<p:documentation>
-			pxi:dtbook-doctyping
-		</p:documentation>
-	</p:import>
+
 
 	<!-- ******************************************************************* -->
 	<!-- DTBOOK CLEANUP: apply cleanup routines and optionally tag sentences -->
 	<!-- ******************************************************************* -->
-	
+
 	<p:for-each px:message="Cleaning DTBook(s)" px:progess="1/2">
 		<p:variable name="output-name" select="concat(replace(replace(base-uri(.),'^.*/([^/]+)$','$1'),'\.[^\.]*$',''),'.xml')"/>
 		<p:group name="cleaned" px:message="Cleaning '{$output-name}' ...">

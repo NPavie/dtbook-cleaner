@@ -6,5 +6,5 @@
        px:content-type="script"
        px:id="dtbook-cleaner"
   />
-
+  <uri name="http://www.daisy.org/pipeline/modules/dtbook-cleaner/library.xpl" uri="../xml/library.xpl"/>
 </catalog>
